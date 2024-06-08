@@ -3,17 +3,16 @@
 #pragma comment(lib, "wbemuuid.lib")
 
 std::mutex AntiVirtualization::mutex;
-std::unique_ptr<AntiVirtualization> AntiVirtualization::instance; // Initialize instance as nullptr
+std::unique_ptr<AntiVirtualization> AntiVirtualization::instance;
 
 AntiVirtualization* AntiVirtualization::getInstance() {
-	// Double-check locking for thread safety
 	if (!instance) {
 		std::lock_guard<std::mutex> lock(mutex);
 		if (!instance) {
-			instance.reset(new AntiVirtualization()); // Create new instance using make_unique
+			instance.reset(new AntiVirtualization());
 		}
 	}
-	return instance.get(); // Return raw pointer
+	return instance.get();
 }
 
 bool AntiVirtualization::isSandboxiePresent() const {

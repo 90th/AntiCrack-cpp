@@ -15,14 +15,13 @@
 #include <mutex>
 #include <comdef.h>
 #include <wbemidl.h>
-#include <memory> // Include memory header for smart pointers
+#include <memory>
 
 class AntiVirtualization {
 public:
-	// Static method to get the single instance of the class
+
 	static AntiVirtualization* getInstance();
 
-	// Anti-virtualization check methods
 	bool isSandboxiePresent() const;
 	bool isComodoSandboxPresent() const;
 	bool isQihoo360SandboxPresent() const;
@@ -40,10 +39,8 @@ public:
 
 private:
 
-	// Singleton instance as unique_ptr
 	static std::unique_ptr<AntiVirtualization> instance;
 
-	// Mutex for thread safety
 	static std::mutex mutex;
 };
 
