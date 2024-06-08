@@ -3,6 +3,8 @@
 
 AntiCrack-cpp is a C++ library designed to provide anti-virtualization and anti-debugging capabilities for your applications. While it may not prevent determined attackers from reverse engineering or cracking your software entirely, it offers a set of foolproof examples to enhance the security of your code.
 
+**it's important to note that no security solution can completely prevent determined attackers**.
+
 ## Features
 
 - **Anti-Debugging Checks:** Prevent debugging attempts by detecting various debuggers and debugging techniques.
