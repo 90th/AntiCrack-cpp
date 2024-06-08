@@ -18,7 +18,7 @@ AntiCrack-cpp is a C++ library designed to provide anti-virtualization and anti-
 - **checkKUserSharedDataStructure():** Detects debug info in KUSER_SHARED_DATA.
 - **checkNtProcessDebugPort():** Detects debugging via PEB DebugPort.
 - **AntiDebugAttach():** Modifies memory to hinder debugging
-- 
+
 ### Virtualization Checks:
 - **isSandboxiePresent():** Detects Sandboxie.
 - **isComodoSandboxPresent():** Detects Comodo Sandbox.
