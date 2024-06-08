@@ -64,6 +64,8 @@ int main() {
 		std::cout << "heapProtectionCheck(): " << (antiDebug->heapProtectionCheck() ? "true" : "false") << "\n";
 		std::cout << "checkKUserSharedDataStructure(): " << (antiDebug->checkKUserSharedDataStructure() ? "true" : "false") << "\n";
 		std::cout << "checkNtProcessDebugPort(): " << (antiDebug->checkNtProcessDebugPort() ? "true" : "false") << "\n";
+		std::cout << "AntiDebugAttach(): " << (antiDebug->AntiDebugAttach() ? "true" : "false") << "\n";
+
 
 		std::cout << "\nVirtualization Checks:\n";
 		std::cout << "isSandboxiePresent(): " << (antiVirtualization->isSandboxiePresent() ? "true" : "false") << "\n";
