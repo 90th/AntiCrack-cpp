@@ -3,6 +3,8 @@
 
 AntiCrack-cpp is a C++ library designed to provide anti-virtualization and anti-debugging capabilities for your applications. While it may not prevent determined attackers from reverse engineering or cracking your software entirely, it offers a set of foolproof examples to enhance the security of your code.
 
+**it's important to note that no security solution can completely prevent determined attackers**.
+
 ## Features
 
 - **Anti-Debugging Checks:** Prevent debugging attempts by detecting various debuggers and debugging techniques.
@@ -17,6 +19,7 @@ AntiCrack-cpp is a C++ library designed to provide anti-virtualization and anti-
 - **heapProtectionCheck():** Detects heap protection.
 - **checkKUserSharedDataStructure():** Detects debug info in KUSER_SHARED_DATA.
 - **checkNtProcessDebugPort():** Detects debugging via PEB DebugPort.
+- **AntiDebugAttach():** Modifies memory to hinder debugging
 
 ### Virtualization Checks:
 - **isSandboxiePresent():** Detects Sandboxie.
@@ -63,6 +66,8 @@ int main() {
 		std::cout << "heapProtectionCheck(): " << (antiDebug->heapProtectionCheck() ? "true" : "false") << "\n";
 		std::cout << "checkKUserSharedDataStructure(): " << (antiDebug->checkKUserSharedDataStructure() ? "true" : "false") << "\n";
 		std::cout << "checkNtProcessDebugPort(): " << (antiDebug->checkNtProcessDebugPort() ? "true" : "false") << "\n";
+		std::cout << "AntiDebugAttach(): " << (antiDebug->AntiDebugAttach() ? "true" : "false") << "\n";
+
 
 		std::cout << "\nVirtualization Checks:\n";
 		std::cout << "isSandboxiePresent(): " << (antiVirtualization->isSandboxiePresent() ? "true" : "false") << "\n";
