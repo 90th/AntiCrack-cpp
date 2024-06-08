@@ -22,6 +22,7 @@ public:
 	bool heapProtectionCheck() const;
 	bool checkKUserSharedDataStructure() const;
 	bool checkNtProcessDebugPort() const;
+	bool AntiDebugAttach() const;
 private:
 
 	// Singleton instance

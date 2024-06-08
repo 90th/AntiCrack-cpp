@@ -14,14 +14,13 @@ typedef NTSTATUS(NTAPI* TNtQueryInformationProcess)(
 	);
 
 AntiDebug* AntiDebug::getInstance() {
-	// Double-check locking for thread safety
 	if (!instance) {
 		std::lock_guard<std::mutex> lock(mutex);
 		if (!instance) {
-			instance.reset(new AntiDebug()); // Create new instance using make_unique
+			instance.reset(new AntiDebug());
 		}
 	}
-	return instance.get(); // Return raw pointer
+	return instance.get();
 }
 
 bool AntiDebug::checkRemoteDebuggerPresent() const {
@@ -124,5 +123,26 @@ bool AntiDebug::checkNtProcessDebugPort() const {
 		}
 		FreeLibrary(hNtdll);
 	}
+	return false;
+}
+
+bool AntiDebugAttach() {
+	HMODULE NtdllModule = GetModuleHandle(TEXT("ntdll.dll"));
+	if (!NtdllModule) {
+		// Handle error
+		return false;
+	}
+
+	FARPROC DbgUiRemoteBreakinAddress = GetProcAddress(NtdllModule, "DbgUiRemoteBreakin");
+	FARPROC DbgBreakPointAddress = GetProcAddress(NtdllModule, "DbgBreakPoint");
+	BYTE Int3InvaildCode[] = { 0xCC };
+	BYTE RetCode[] = { 0xC3 };
+	HANDLE hProcess = GetCurrentProcess();
+
+	BOOL Status = WriteProcessMemory(hProcess, DbgUiRemoteBreakinAddress, Int3InvaildCode, sizeof(Int3InvaildCode), NULL);
+	BOOL Status2 = WriteProcessMemory(hProcess, DbgBreakPointAddress, RetCode, sizeof(RetCode), NULL);
+
+	if (Status && Status2)
+		return true;
 	return false;
 }
