@@ -126,7 +126,7 @@ bool AntiDebug::checkNtProcessDebugPort() const {
 	return false;
 }
 
-bool AntiDebugAttach() {
+bool AntiDebug::AntiDebugAttach() const {
 	HMODULE NtdllModule = GetModuleHandle(TEXT("ntdll.dll"));
 	if (!NtdllModule) {
 		// Handle error
