@@ -116,8 +116,8 @@ bool AntiDebug::checkNtProcessDebugPort() const {
 				sizeof(DWORD),
 				&dwReturned);
 
-			if (NT_SUCCESS(status) && (-1 == dwProcessDebugPort)) {
 				FreeLibrary(hNtdll);
+			if (NT_SUCCESS(status) && (-1 == dwProcessDebugPort)) {
 				return true;
 			}
 		}
