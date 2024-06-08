@@ -1,4 +1,5 @@
 # AntiCrack-cpp
+![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/90th/AntiCrack-cpp/latest/total) ![GitHub last commit](https://img.shields.io/github/last-commit/90th/AntiCrack-cpp) ![GitHub Repo stars](https://img.shields.io/github/stars/90th/AntiCrack-cpp)
 
 AntiCrack-cpp is a C++ library designed to provide anti-virtualization and anti-debugging capabilities for your applications. While it may not prevent determined attackers from reverse engineering or cracking your software entirely, it offers a set of foolproof examples to enhance the security of your code.
 
